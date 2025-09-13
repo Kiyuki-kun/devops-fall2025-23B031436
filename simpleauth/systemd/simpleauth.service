@@ -1,0 +1,14 @@
+[Unit]
+Description=SimpleAuth Flask app
+After=network.target postgresql.service
+
+[Service]
+User=vagrant
+WorkingDirectory=/vagrant
+Environment=DATABASE_URL=postgresql://vagrant:password@127.0.0.1/simpleauth
+ExecStart=/home/vagrant/simpleauth-venv/bin/gunicorn --bind 0.0.0.0:5000 app:app
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=multi-user.target

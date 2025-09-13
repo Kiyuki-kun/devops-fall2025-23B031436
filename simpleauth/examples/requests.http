@@ -1,0 +1,9 @@
+### Request token
+POST http://127.0.0.1:5000/token
+Content-Type: application/x-www-form-urlencoded
+
+grant_type=client_credentials&client_id=devops&client_secret=devops-secret&scope=push_send
+
+### Check token (replace <token>)
+GET http://127.0.0.1:5000/check
+Authorization: Bearer <token>
