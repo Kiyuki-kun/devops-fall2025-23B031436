@@ -1,1 +1,4 @@
+SHELL=/bin/sh
+PATH=/usr/bin:/bin
+# Run batch job every 5 minutes as root and append output to /var/log/batch.log
 */5 * * * * root python3 /app/batch.py >> /var/log/batch.log 2>&1
