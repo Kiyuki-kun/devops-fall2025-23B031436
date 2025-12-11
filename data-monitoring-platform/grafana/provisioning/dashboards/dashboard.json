@@ -1,0 +1,11 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "System Metrics Overview",
+    "tags": ["devops", "monitoring"],
+    "timezone": "browser",
+    "schemaVersion": 27,
+    "version": 1,
+    "panels": []
+  }
+}

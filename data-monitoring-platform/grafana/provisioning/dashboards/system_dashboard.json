@@ -1,0 +1,35 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "System Metrics Overview",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "CPU Usage",
+        "targets": [
+          {
+            "expr": "100 - (avg by (instance)(irate(node_cpu_seconds_total{mode='idle'}[5m])) * 100)",
+            "refId": "A"
+          }
+        ],
+        "gridPos": {"x": 0, "y": 0, "w": 24, "h": 8},
+        "id": 1
+      },
+      {
+        "type": "graph",
+        "title": "Memory Usage",
+        "targets": [
+          {
+            "expr": "(node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / 1024 / 1024",
+            "refId": "B"
+          }
+        ],
+        "gridPos": {"x": 0, "y": 8, "w": 24, "h": 8},
+        "id": 2
+      }
+    ],
+    "schemaVersion": 27,
+    "version": 1
+  },
+  "overwrite": true
+}
