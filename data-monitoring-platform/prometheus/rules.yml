@@ -1,20 +1,11 @@
 groups:
-  - name: system.rules
+  - name: test.rules
     rules:
-      - alert: InstanceDown
-        expr: up == 0
-        for: 1m
+      - alert: AlwaysFiring
+        expr: vector(1)
+        for: 0m
         labels:
-          severity: critical
+          severity: page
         annotations:
-          summary: "Instance {{ $labels.instance }} down"
-          description: "{{ $labels.instance }} is down for more than 1 minute."
-
-      - alert: HighCPUUsage
-        expr: 100 - (avg by (instance) (irate(node_cpu_seconds_total{mode="idle"}[5m])) * 100) > 85
-        for: 2m
-        labels:
-          severity: warning
-        annotations:
-          summary: "High CPU usage on {{ $labels.instance }}"
-          description: "CPU usage above 85% for 2 minutes."
+          summary: "Always firing alert (for testing)"
+          description: "This alert is intentionally always firing to test Alertmanager routing."
